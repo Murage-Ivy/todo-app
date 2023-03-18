@@ -1,5 +1,3 @@
-
-import './App.css';
 import Sidebar from './Components/Sidebar';
 import RouteList from './Routes';
 

@@ -3,6 +3,9 @@ import Main from './Main'
 import menuItems from './helper/Helper'
 import { NavLink } from 'react-router-dom'
 import './Styles/Sidebar.css'
+import { Outlet } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 function Sidebar({ children }) {
 
@@ -34,8 +37,21 @@ function Sidebar({ children }) {
                     {menuList}
                 </div>
 
+
+                <div className='logout'>
+                    <FontAwesomeIcon icon={faSignOutAlt} className='icon' />
+                    <div className='title'>Logout</div>
+                </div>
+
             </div>
-            <Main children={children} />
+
+            <div>
+                <p>Welcome</p>
+                <Outlet />
+            </div>
+            <main>
+                {children}
+            </main>
         </div>
     )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <h1>Dashboard</h1>
+    </div>
   )
 }
 

@@ -39,3 +39,9 @@
 .menu {
   height: 300px;
 }
+
+
+.main-side{
+    background-color: red;
+    color: black;
+}
