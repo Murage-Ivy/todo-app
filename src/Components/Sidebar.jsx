@@ -1,5 +1,4 @@
 import React from 'react'
-import Main from './Main'
 import menuItems from './helper/Helper'
 import { NavLink } from 'react-router-dom'
 import './Styles/Sidebar.css'

@@ -1,0 +1,50 @@
+.dashboard {
+  padding: 0.5rem 1rem;
+  min-height: 100vh;
+}
+.dashboard-img > img {
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  display: block;
+  padding: 20px;
+}
+
+.intro-text {
+  margin: 0 auto;
+  width: 500px;
+  box-shadow: 1.9px 0.6px 6.9px rgba(0, 0, 0, 0.014),
+    4.6px 1.5px 16.5px rgba(0, 0, 0, 0.02),
+    8.6px 2.9px 31.1px rgba(0, 0, 0, 0.025),
+    15.4px 5.1px 55.4px rgba(0, 0, 0, 0.03),
+    28.8px 9.6px 103.6px rgba(0, 0, 0, 0.036),
+    69px 23px 248px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+.intro-text > p {
+  text-align: justify;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 20px;
+}
+
+.get-started-btn {
+  margin: 0 auto;
+  display: block;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #6b0504;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.get-started-btn:hover {
+  border: 2px solid #6b0504;
+  background-color: transparent;
+  color: #6b0504;
+  
+}
