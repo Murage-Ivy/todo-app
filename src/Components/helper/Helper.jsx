@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const menuItems = [
     {
         title: 'Home',
-        url: '/',
+        url: '/dashboard',
         icon: <FontAwesomeIcon icon={faHome} />
     },
 

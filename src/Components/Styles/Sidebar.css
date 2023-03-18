@@ -1,6 +1,6 @@
 .sidebar {
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .top-part {
@@ -9,10 +9,33 @@
   left: 0;
   width: 250px;
   height: 100%;
-  background: #151719;
-  color: #fff;
+  background: var(--sidebar-color);
   transition: all 0.3s;
   z-index: 1;
+  display: grid;
+  grid-template-rows: 10% 20% 60% 10%;
+  align-items: stretch;
+}
+.nav-link {
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  justify-items: space-between;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
+.nav-link:hover {
+  background: var(--sidebar-color-hover);
+  color: #fff;
+  border-right: 5px solid var(--text-color);
 
+}
+.menu {
+  height: 300px;
+}

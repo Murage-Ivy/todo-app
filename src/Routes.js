@@ -10,7 +10,7 @@ function RouteList() {
         <>
 
             <Routes>
-                <Route path="/" element={<Dashboard />} />
+                <Route path="/*" element={<Dashboard />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/calendar" element={<Calendar />} />
                 <Route path="/tasklist" element={<TaskPage />} />
