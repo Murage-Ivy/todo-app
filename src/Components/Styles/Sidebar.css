@@ -16,7 +16,7 @@
   grid-template-rows: 10% 20% 60% 10%;
   align-items: stretch;
 }
-.nav-link {
+.nav-link{
   color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,8 +40,15 @@
   height: 300px;
 }
 
-
 .main-side{
     background-color: red;
     color: black;
+}
+
+.logout{
+    border-top:1px solid rgb(223, 221, 221);
+}
+
+.logout-icon > a:hover{
+background-color: transparent;
 }

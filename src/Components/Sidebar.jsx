@@ -38,8 +38,12 @@ function Sidebar({ children }) {
 
 
                 <div className='logout'>
-                    <FontAwesomeIcon icon={faSignOutAlt} className='icon' />
-                    <div className='title'>Logout</div>
+                    <NavLink className="nav-link">
+                        <FontAwesomeIcon icon={faSignOutAlt} className='logout-icon' />
+                        <div className='title'>Logout</div>
+
+                    </NavLink>
+                   
                 </div>
 
             </div>
