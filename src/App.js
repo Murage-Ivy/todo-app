@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 import LoginForm from './Components/LoginForm';
 import Sidebar from './Components/Sidebar';
 import RouteList from './Routes';
@@ -6,12 +7,13 @@ import RouteList from './Routes';
 function App() {
   return (
     <>
-      {/* <Sidebar>
-        <RouteList />
-      </Sidebar> */}
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/*" element={<Sidebar>
+          <RouteList />
+        </Sidebar>} />
+      </Routes>
 
-
-      <LoginForm />
     </>
 
 
