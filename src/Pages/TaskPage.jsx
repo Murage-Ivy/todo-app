@@ -1,8 +1,12 @@
 import React from 'react'
+import Search from '../Components/Search'
+import '../Components/Styles/TaskPage.css'
 
 function TaskPage() {
   return (
-    <div>TaskPage</div>
+    <div id='taskpage'>
+      <Search />
+    </div>
   )
 }
 
