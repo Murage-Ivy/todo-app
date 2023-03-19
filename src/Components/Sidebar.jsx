@@ -17,16 +17,15 @@ function Sidebar({ children }) {
     return (
         <div className='sidebar'>
             <div className='top-part'>
-                <h2>Simply<span>Plan</span></h2>
+                <h2 id='logo'>Simply<span id='plan'>Plan.</span></h2>
 
                 <div className='user'>
-                    <img src='https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg' alt='user' />
+                    <img src='../assets/images/placeholder.jpg' alt='user' />
                     <div className='user-info'>
                         <h4>John Doe</h4>
-                        <p>
-                            <span className='dot'></span>
-                            Online
-                        </p>
+
+                        <span className='dot'>Online</span>
+
                     </div>
                 </div>
 
@@ -43,7 +42,7 @@ function Sidebar({ children }) {
                         <div className='title'>Logout</div>
 
                     </NavLink>
-                   
+
                 </div>
 
             </div>
