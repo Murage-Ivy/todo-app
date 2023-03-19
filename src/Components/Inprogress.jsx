@@ -1,8 +1,9 @@
 import React from 'react'
+import './Styles/Task.css'
 
 function Inprogress() {
   return (
-    <div>Inprogress</div>
+    <div id='inprogress'>Inprogress</div>
   )
 }
 

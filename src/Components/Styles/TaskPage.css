@@ -1,4 +1,13 @@
 #taskpage{
     padding-top: 30px;
     border:1px solid red;
+    min-height: 100vh;
+}
+
+#taskpage__container{
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
 }

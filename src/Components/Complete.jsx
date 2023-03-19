@@ -1,9 +1,10 @@
 import React from 'react'
+import './Styles/Task.css'
 
 function Complete() {
-  return (
-    <div>Complete</div>
-  )
+    return (
+        <div id='complete'>Complete</div>
+    )
 }
 
 export default Complete

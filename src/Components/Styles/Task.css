@@ -1,0 +1,7 @@
+#todo, #inprogress, #complete{
+    min-height: 80vh;
+    overflow: auto;
+    background-color: var(--container-color);
+    width: 300px;
+
+}
