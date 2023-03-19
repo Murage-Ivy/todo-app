@@ -1,5 +1,4 @@
-import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
+import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import './Styles/LoginForm.css'
@@ -7,17 +6,17 @@ import './Styles/LoginForm.css'
 function LoginForm() {
     return (
         <div className='login-form'>
-            <h1>Login Form</h1>
+            
             <img src="../assets/images/computer-login-animate.svg" alt="Login Form" />
 
-            <header>
+            <header id='login-header'>
                 <h1>Welcome Back!</h1>
             </header>
 
 
             <form id='form'>
                 <div className='form-group'>
-                    <FontAwesomeIcon icon={faUser} className="login-icons" />
+                    <FontAwesomeIcon icon={faUserAlt} className="login-icons" />
                     <input type='email' name='email' id='email' placeholder='Enter your email' />
                 </div>
                 <div className='form-group'>
@@ -30,7 +29,7 @@ function LoginForm() {
                     <label htmlFor='remember'>Remember me</label>
                 </div>
 
-                <button type='submit'>Login</button>
+                <button type='submit' id='login-btn'>Login</button>
             </form>
         </div>
     )

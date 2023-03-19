@@ -1,19 +1,38 @@
 .login-form {
   width: 100%;
-  max-width: 700px;
-  padding: 15px;
+  max-width: 600px;
   margin: auto;
-  border: 1px solid red;
+  margin-top: 10px;
+  max-height: 100vh;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: var(--text-color);
+  border-radius: 10px;
+  box-shadow:
+  0px 0px 2.2px rgba(0, 0, 0, 0.02),
+  0px 0px 5.3px rgba(0, 0, 0, 0.028),
+  0px 0px 10px rgba(0, 0, 0, 0.035),
+  0px 0px 17.9px rgba(0, 0, 0, 0.042),
+  0px 0px 33.4px rgba(0, 0, 0, 0.05),
+  0px 0px 80px rgba(0, 0, 0, 0.07)
+;
 }
 
 .login-form > img {
-  border: 1px solid #ccc;
-  width: 600px;
+  width: 400px;
   height: 300px;
   margin: 0 auto;
   display: block;
+  background-color: var(--sidebar-color);
+  width: 100%;
 }
 
+#login-header > h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
 .login-form .form-control {
   position: relative;
   box-sizing: border-box;
@@ -30,16 +49,15 @@
   background: #ffffff;
   max-width: 700px;
   margin: 0 auto;
-  padding: 15px;
-  border: 1px solid red;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .form-group {
-  border: 1px solid red;
-  padding: 20px;
+  padding: 10px;
+  position: relative;
 }
 
 .form-group > #email,
@@ -49,4 +67,33 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+  padding-left: 40px;
+}
+
+.form-group > #email:focus,
+#password:focus {
+  outline: none;
+  border: 1px solid var(--sidebar-color);
+}
+
+.login-icons {
+  position: absolute;
+  top: 2em;
+  left: 30px;
+  color: var(--sidebar-color);
+}
+
+#login-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: var(--sidebar-color);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#remember{
+  margin-right: 10px;
 }

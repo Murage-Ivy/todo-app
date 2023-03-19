@@ -16,5 +16,9 @@
   box-sizing: border-box;
   font-family: var(--main-font);
   font-size: 13px;
-  
+}
+
+body {
+  background-color: #F5FFFA;
+  overflow: hidden;
 }
