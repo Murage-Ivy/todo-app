@@ -1,7 +1,30 @@
-#todo, #inprogress, #complete{
-    min-height: 80vh;
-    overflow: auto;
-    background-color: var(--container-color);
-    width: 300px;
+#todo,
+#inprogress,
+#complete {
+  height: 80vh;
+  overflow: auto;
+  width: 300px;
+  border-radius: 10px;
+  background-color: var(--sidebar-color);
+}
 
+#todo::-webkit-scrollbar,
+#inprogress::-webkit-scrollbar,
+#complete::-webkit-scrollbar {
+  display: none;
+}
+.todo-heading {
+  padding: 10px 30px;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0.1px 1.3px 3.2px rgba(0, 0, 0, 0.02),
+    0.3px 3.2px 7.6px rgba(0, 0, 0, 0.028),
+    0.6px 6px 14.3px rgba(0, 0, 0, 0.035),
+    1.1px 10.7px 25.5px rgba(0, 0, 0, 0.042),
+    2.1px 20.1px 47.6px rgba(0, 0, 0, 0.05), 5px 48px 114px rgba(0, 0, 0, 0.07);
+  color: var(--text-color);
+  font-size: 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--sidebar-color);
 }
