@@ -1,12 +1,15 @@
-#taskpage{
-    padding-top: 30px;
-    min-height: 100vh;
+#taskpage {
+  padding-top: 12px;
+  min-height: 100vh;
 }
 
-#taskpage__container{
-    padding-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: center;
+#taskpage__container {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.taskpage__header {
+  text-align: right;
 }
