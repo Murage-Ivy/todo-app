@@ -41,3 +41,10 @@
 .task-card-status > p {
   font-size: 10px;
 }
+
+.task-card-title > h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--sidebar-color);
+}
