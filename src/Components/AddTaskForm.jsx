@@ -15,7 +15,7 @@ function AddTaskForm() {
     <div className='task-form'>
       <div className='task-form-header'>
         <h2 className='task-form-title'>Add Task</h2>
-        <FontAwesomeIcon icon={faPlus} className='close-icon' />
+        <FontAwesomeIcon icon={faPlus} className='close-icon' onClick={handleChange} />
       </div>
       <form>
         <div className="task-form-group">
