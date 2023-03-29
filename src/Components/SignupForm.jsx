@@ -1,42 +1,86 @@
-import { faImage, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faImage, faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { signUpUser } from '../reducers/signupslice'
 import '../Styles/SignupForm.css'
 
 function SignupForm() {
+    const [user, setUser] = useState({
+        email: '',
+        image: '',
+        password: '',
+        password_confirmation: ''
+
+    })
+
+    const dispatch = useDispatch()
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setUser({ ...user, [name]: value })
+    }
+
+    const handleSubmit = (event) => {
+
+        event.preventDefault()
+        dispatch(signUpUser(user))
+        console.log(user)
+    }
+
     return (
 
         <div className="signip-div">
             <div className="signup-form">
-                <form className="signup-form-header">
+                <form className="signup-form-header" onSubmit={handleSubmit}>
                     <div className="form-header">
                         <h1>Hello, Friend !</h1>
                         <p>Enter your personal details and start journey with us</p>
                     </div>
 
                     <div className="signup-form-input">
-                        <FontAwesomeIcon icon={faUser} className="sign-icons" />
-                        <input type="text" placeholder="UserName" />
+                        <FontAwesomeIcon icon={faEnvelope} className="sign-icons" />
+                        <input type="email"
+                            placeholder="Email"
+                            value={user.email}
+                            name="email"
+                            onChange={handleChange} />
                     </div>
                     <div className="signup-form-input">
                         <FontAwesomeIcon icon={faImage} className="sign-icons" />
-                        <input type="text" placeholder="Profile Picture" />
+                        <input
+                            type="text"
+                            placeholder="Profile Picture"
+                            value={user.image}
+                            name="image"
+                            onChange={handleChange} />
                     </div>
 
                     <div className="signup-form-input">
                         <FontAwesomeIcon icon={faLock} className="sign-icons" />
-                        <input type="password" placeholder="Password" />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={user.password}
+                            name="password"
+                            onChange={handleChange} />
                     </div>
 
                     <div className="signup-form-input">
                         <FontAwesomeIcon icon={faLock} className="sign-icons" />
-                        <input type="password" placeholder="Confirm Password" />
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={user.password_confirmation}
+                            name="password_confirmation"
+                            onChange={handleChange}
+                        />
                     </div>
 
                     <div className="signup-form-footer">
-                        <button className="signup-btn">Sign Up</button>
+                        <button className="signup-btn">SIGN UP</button>
                         <p>Already have an account? <NavLink to="/"><span id='login'>Login</span></NavLink></p>
                     </div>
 

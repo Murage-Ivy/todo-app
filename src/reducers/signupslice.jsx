@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-export const addUser = createAsyncThunk("user/signup", async (user) => {
+export const signUpUser = createAsyncThunk("user/signup", async (user) => {
     const response = await fetch('', {
         method: "POST",
         headers: { 'Content-Type': 'Application/json' },
@@ -32,16 +32,16 @@ const signedUser = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(addUser.pending, (state, _) => {
+            .addCase(signUpUser.pending, (state, _) => {
                 state.status = "loading"
             })
 
-            .addCase(addUser.fulfilled, (state, action) => {
+            .addCase(signUpUser.fulfilled, (state, action) => {
                 state.status = "idle"
                 state.user = action.payload
             })
 
-            .addCase(addUser.rejected, (state, action) => {
+            .addCase(signUpUser.rejected, (state, action) => {
                 state.status = "failed"
                 state.errors = action.payload
             })
