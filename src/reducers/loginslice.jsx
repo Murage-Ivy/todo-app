@@ -48,6 +48,8 @@ const loggedUser = createSlice({
                 state.status = "failed"
                 state.errors = action.payload
             })
+
+            .addDefaultCase((state, action) => { })
     }
 })
 
