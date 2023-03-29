@@ -1,5 +1,5 @@
 import React from 'react'
-import './Styles/Task.css'
+import '../Styles/Task.css'
 import TaskCard from './TaskCard'
 
 function Inprogress() {

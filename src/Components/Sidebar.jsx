@@ -1,7 +1,7 @@
 import React from 'react'
 import menuItems from './helper/Helper'
 import { NavLink } from 'react-router-dom'
-import './Styles/Sidebar.css'
+import '../Styles/Sidebar.css'
 import { Outlet } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import AddTaskBtn from '../Components/AddTaskBtn'
 import AddTaskForm from '../Components/AddTaskForm'
 import Search from '../Components/Search'
-import '../Components/Styles/TaskPage.css'
+import '../Styles/TaskPage.css'
 import TaskContainer from '../Components/TaskContainer'
 import { TaskPageContext } from '../context/TaskPageContext'
 

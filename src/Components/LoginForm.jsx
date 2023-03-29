@@ -1,12 +1,12 @@
 import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import './Styles/LoginForm.css'
+import '../Styles/LoginForm.css'
 
 function LoginForm() {
     return (
         <div className='login-form'>
-            
+
             <img src="../assets/images/computer-login-animate.svg" alt="Login Form" />
 
             <header id='login-header'>
@@ -23,13 +23,13 @@ function LoginForm() {
                     <FontAwesomeIcon icon={faLock} className="login-icons" />
                     <input type='password' name='password' id='password' placeholder='Enter your password' />
                 </div>
-                <div className='form-group'>
 
-                    <input type='checkbox' name='remember' id='remember' />
-                    <label htmlFor='remember'>Remember me</label>
-                </div>
 
                 <button type='submit' id='login-btn'>Login</button>
+
+            
+                    <label htmlFor='remember' id='signup-option'>Don't Hava an account? <span id='login'>Login</span></label>
+            
             </form>
         </div>
     )

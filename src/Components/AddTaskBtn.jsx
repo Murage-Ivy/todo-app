@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { TaskPageContext } from '../context/TaskPageContext'
-import './Styles/AddTaskBtn.css'
+import '../Styles/AddTaskBtn.css'
 
 function AddTaskBtn() {
     const { setTrigger } = useContext(TaskPageContext)
