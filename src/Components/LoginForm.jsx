@@ -21,7 +21,6 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-
         dispatch(addUser(loggedUser))
         setLoggedUser({
             email: '',
@@ -39,21 +38,37 @@ function LoginForm() {
             </header>
 
 
-            <form id='form'>
+            <form id='form' onSubmit={handleSubmit}>
                 <div className='form-group'>
                     <FontAwesomeIcon icon={faUserAlt} className="login-icons" />
-                    <input type='email' name='email' id='email' placeholder='Enter your email' />
+                    <input
+                        type='email'
+                        name='email'
+                        id='email'
+                        placeholder='Enter your email'
+                        value={loggedUser.email}
+                        onChange={handleChange} />
                 </div>
                 <div className='form-group'>
                     <FontAwesomeIcon icon={faLock} className="login-icons" />
-                    <input type='password' name='password' id='password' placeholder='Enter your password' />
+                    <input
+                        type='password'
+                        name='password'
+                        id='password'
+                        placeholder='Enter your password'
+                        value={loggedUser.password}
+                        onChange={handleChange} />
                 </div>
 
 
                 <button type='submit' id='login-btn'>Login</button>
 
 
-                <label htmlFor='remember' id='signup-option'>Don't Hava an account? <span id='login'>Login</span></label>
+                <label
+                    htmlFor='remember'
+                    id='signup-option'>
+                    Don't Hava an account?
+                    <span id='login'>Login</span></label>
 
             </form>
         </div>
