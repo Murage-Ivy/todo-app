@@ -2,6 +2,7 @@ import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { addUser } from '../reducers/loginslice'
 import '../Styles/LoginForm.css'
 
@@ -74,7 +75,9 @@ function LoginForm() {
                     htmlFor='remember'
                     id='signup-option'>
                     Don't Hava an account?
-                    <span id='login'>Login</span></label>
+                    <NavLink to="/signup">
+                        <span id='login'>Sign Up</span>
+                    </NavLink></label>
 
             </form>
         </div>

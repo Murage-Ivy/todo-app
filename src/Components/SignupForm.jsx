@@ -1,6 +1,8 @@
 import { faImage, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from '@mui/material'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import '../Styles/SignupForm.css'
 
 function SignupForm() {
@@ -35,7 +37,7 @@ function SignupForm() {
 
                     <div className="signup-form-footer">
                         <button className="signup-btn">Sign Up</button>
-                        <p>Already have an account? <span id='login'>Login</span></p>
+                        <p>Already have an account? <NavLink to="/"><span id='login'>Login</span></NavLink></p>
                     </div>
 
                 </form>
