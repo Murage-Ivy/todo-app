@@ -33,20 +33,21 @@ const loggedUser = createSlice({
     initialState,
     reducers: {
     },
-    extraReducers: {
-        [addUser.pending]: (state, action) => {
-            state.status = "loading"
-        },
+    extraReducers: (builder) => {
+        builder
+            .addCase(addUser.pending, (state, _) => {
+                state.status = "loading"
+            })
 
-        [addUser.fulfilled]: (state, action) => {
-            state.status = "success"
-            state.user = action.payload
-        },
+            .addCase(addUser.fulfilled, (state, action) => {
+                state.status = "success"
+                state.user = action.payload
+            })
 
-        [addUser.rejected]: (state, action) => {
-            state.status = "failed"
-            state.error = action.payload
-        }
+            .addCase(addUser.rejected, (state, action) => {
+                state.status = "failed"
+                state.errors = action.payload
+            })
     }
 })
 
