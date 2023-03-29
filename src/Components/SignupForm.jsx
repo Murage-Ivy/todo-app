@@ -1,6 +1,7 @@
 import { faImage, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import '../Styles/SignupForm.css'
 
 function SignupForm() {
     return (
@@ -8,8 +9,11 @@ function SignupForm() {
         <div className="signip-div">
             <div className="signup-form">
                 <form className="signup-form-header">
-                    <h1>Hello, Friend !</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <div className="form-header">
+                        <h1>Hello, Friend !</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                    </div>
+
                     <div className="signup-form-input">
                         <FontAwesomeIcon icon={faUser} className="sign-icons" />
                         <input type="text" placeholder="UserName" />
@@ -35,19 +39,17 @@ function SignupForm() {
                     </div>
 
                 </form>
-
-                <div>
-                    <img src="../assets/images/computer-login-animate.svg" alt="Login Form" />
-                    <h1>Glad to see you</h1>
-                    <p>
-                        Welcome to our sign-up form!
-                        We're excited to have you join our community.
-                        Please fill out the following information to create your account:
-                    </p>
-                </div>
-
-
             </div>
+            <div className='signup-form-side'>
+                <img src="../assets/images/sign-up-animate.svg" alt="sign up Form" />
+                <h1>Glad to see you</h1>
+                <p>
+                    Welcome to our sign-up form!
+                    We're excited to have you join our community.
+                    Please fill out the following information to create your account:
+                </p>
+            </div>
+
         </div>
     )
 }
