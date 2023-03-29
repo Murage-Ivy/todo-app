@@ -1,9 +1,34 @@
 import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../reducers/loginslice'
 import '../Styles/LoginForm.css'
 
 function LoginForm() {
+
+    const [loggedUser, setLoggedUser] = useState({
+        email: '123',
+        password: ''
+    })
+
+    const dispatch = useDispatch()
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setLoggedUser({ ...loggedUser, [name]: value })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        dispatch(addUser(loggedUser))
+        setLoggedUser({
+            email: '',
+            password: ''
+        })
+    }
+
     return (
         <div className='login-form'>
 
@@ -27,9 +52,9 @@ function LoginForm() {
 
                 <button type='submit' id='login-btn'>Login</button>
 
-            
-                    <label htmlFor='remember' id='signup-option'>Don't Hava an account? <span id='login'>Login</span></label>
-            
+
+                <label htmlFor='remember' id='signup-option'>Don't Hava an account? <span id='login'>Login</span></label>
+
             </form>
         </div>
     )
