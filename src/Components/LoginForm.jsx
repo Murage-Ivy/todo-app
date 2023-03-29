@@ -1,7 +1,7 @@
 import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addUser } from '../reducers/loginslice'
 import '../Styles/LoginForm.css'
 
@@ -11,6 +11,12 @@ function LoginForm() {
         email: '123',
         password: ''
     })
+
+    const status = useSelector(state => state.loggedUser.status);
+
+    const errors = useSelector(state => state.loggedUser.errors);
+
+
 
     const dispatch = useDispatch()
 

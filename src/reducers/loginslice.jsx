@@ -23,8 +23,8 @@ const initialState = {
         email: "",
         password: "",
     },
-    status: "loading",
-    error: []
+    status: "idle",
+    errors: []
 }
 
 
