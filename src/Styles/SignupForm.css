@@ -64,7 +64,7 @@
 }
 
 .signup-form-footer > p {
-    text-align: center;
+  text-align: center;
 }
 
 .signup-btn {
@@ -103,20 +103,30 @@
   display: block;
 }
 
-
-.signup-form-side h1 , .signup-form-side p {
-    color: var(--text-color);   
-    padding: 10px;
+.signup-form-side h1,
+.signup-form-side p {
+  color: var(--text-color);
+  padding: 10px;
 }
 
 .signup-form-side p {
-    text-align: justify;
+  text-align: justify;
 }
 
 .signup-form-side h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    /* font-style: italic; */
-    text-align: center;
-    text-emphasis: none;
+  font-size: 2rem;
+  font-weight: 700;
+  /* font-style: italic; */
+  text-align: center;
+  text-emphasis: none;
+}
+
+loading {
+  animation: l 1s steps(4) infinite;
+  clip-path: inset(0 1.2ch 0 0);
+}
+@keyframes l {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
 }

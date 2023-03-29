@@ -9,7 +9,7 @@ import '../Styles/LoginForm.css'
 function LoginForm() {
 
     const [loggedUser, setLoggedUser] = useState({
-        email: '123',
+        email: '',
         password: ''
     })
 
@@ -68,7 +68,7 @@ function LoginForm() {
                 </div>
 
 
-                <button type='submit' id='login-btn'>Login</button>
+                <button type='submit' id='login-btn'> {status === "loading" ? <loading>Submitting...</loading> : "LOGIN"}</button>
 
 
                 <label
