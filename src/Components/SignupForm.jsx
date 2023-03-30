@@ -22,8 +22,7 @@ function SignupForm() {
     const errors = useSelector(state => state.signedUser.errors)
 
 
-
-
+    console.log(errors)
 
 
     const handleChange = (event) => {
@@ -43,6 +42,16 @@ function SignupForm() {
         })
     }
 
+    const customDisplayError = () => {
+        if (user.password.length < 0 && user.password.length > 8)
+            return true
+        return false
+    }
+
+
+
+
+
     return (
 
         <div className="signip-div">
@@ -60,6 +69,8 @@ function SignupForm() {
                             value={user.email}
                             name="email"
                             onChange={handleChange} />
+                        {errors ? <p className="error">{errors?.email?.join("")}</p> : null}
+
                     </div>
                     <div className="signup-form-input">
                         <FontAwesomeIcon icon={faImage} className="sign-icons" />
@@ -69,6 +80,7 @@ function SignupForm() {
                             value={user.image}
                             name="image"
                             onChange={handleChange} />
+
                     </div>
 
                     <div className="signup-form-input">
@@ -79,6 +91,7 @@ function SignupForm() {
                             value={user.password}
                             name="password"
                             onChange={handleChange} />
+                        {errors ? <p className="error">{errors?.password?.join("")}</p> : null}
                     </div>
 
                     <div className="signup-form-input">
@@ -90,6 +103,7 @@ function SignupForm() {
                             name="password_confirmation"
                             onChange={handleChange}
                         />
+                        {errors ? <p className="error">{errors?.password_confirmation?.join("")}</p> : null}
                     </div>
 
                     <div className="signup-form-footer">
