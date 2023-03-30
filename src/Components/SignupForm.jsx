@@ -2,7 +2,7 @@ import { faEnvelope, faImage, faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { signUpUser } from '../reducers/signupslice'
 import '../Styles/SignupForm.css'
 
@@ -16,9 +16,14 @@ function SignupForm() {
     })
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const status = useSelector(state => state.signedUser.status)
     const errors = useSelector(state => state.signedUser.errors)
+
+
+
+
 
 
     const handleChange = (event) => {
@@ -29,8 +34,7 @@ function SignupForm() {
     const handleSubmit = (event) => {
 
         event.preventDefault()
-        dispatch(signUpUser(user))
-        console.log(user)
+        dispatch(signUpUser(user, navigate))
         setUser({
             email: '',
             image: '',
@@ -89,7 +93,7 @@ function SignupForm() {
                     </div>
 
                     <div className="signup-form-footer">
-                        <button className="signup-btn"> {status === "Loading" ? <loading>Submitting...</loading> : "SIGN UP"} </button>
+                        <button className="signup-btn"> {status === "loading" ? "submitting..." : "SIGN UP"} </button>
                         <p>Already have an account? <NavLink to="/"><span id='login'>Login</span></NavLink></p>
                     </div>
 
