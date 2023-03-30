@@ -1,11 +1,19 @@
-import { faCalendar, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { TaskPageContext } from '../context/TaskPageContext'
 import '../Styles/AddTaskForm.css'
 
 function AddTaskForm() {
 
+  const [task, setTask] = useState({
+    title: '',
+    description: '',
+    start_date: '',
+    end_date: '',
+    status: '',
+
+  })
   const { setTrigger } = useContext(TaskPageContext)
 
   const handleChange = () => {
@@ -24,7 +32,7 @@ function AddTaskForm() {
         </div>
         <div className="task-form-group">
           <label htmlFor="description">Description</label>
-          <input type="text" placeholder="Add Description" />
+          <textarea cols={100} rows={4} type="text" placeholder="Add Description" />
         </div>
 
         <div className="task-form-group-date">
@@ -43,7 +51,7 @@ function AddTaskForm() {
         <div className="task-form-group">
           <label htmlFor="status">Status</label>
           <select name="status" id="status">
-            <option selected hidden value="status">Status</option>
+            <option hidden value="status">Status</option>
             <option value="todo">Todo</option>
             <option value="inprogress">Inprogress</option>
             <option value="complete">Complete</option>
