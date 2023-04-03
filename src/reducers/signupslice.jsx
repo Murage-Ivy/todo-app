@@ -29,6 +29,7 @@ const initialState = {
     },
     status: "idle",
     success: false,
+    
     errors: {}
 }
 const signedUser = createSlice({

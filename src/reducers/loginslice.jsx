@@ -26,6 +26,7 @@ const initialState = {
     },
     status: "idle",
     errors: [],
+    success: false
 }
 
 
@@ -33,6 +34,10 @@ const loggedUser = createSlice({
     name: "auth",
     initialState,
     reducers: {
+        resetSuccess(state) {
+            state.success = false
+        }
+
     },
     extraReducers: (builder) => {
         builder
@@ -41,7 +46,8 @@ const loggedUser = createSlice({
             })
 
             .addCase(addUser.fulfilled, (state, action) => {
-                state.status = "success"
+                state.status = "idle"
+                state.success = true
                 state.user = action.payload
             })
 
@@ -55,3 +61,4 @@ const loggedUser = createSlice({
 })
 
 export default loggedUser.reducer
+export const { resetSuccess } = loggedUser.actions

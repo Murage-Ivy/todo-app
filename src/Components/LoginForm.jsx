@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { addUser } from '../reducers/loginslice'
+import { resetSuccess } from '../reducers/signupslice'
 import '../Styles/LoginForm.css'
 
 function LoginForm() {
@@ -16,15 +17,18 @@ function LoginForm() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { status, errors } = useSelector(state => state.loggedUser)
+    const { status, errors, success } = useSelector(state => state.loggedUser)
 
 
     useEffect(() => {
-        if (status === "success") {
+        if (success) {
             navigate('/dashboard')
         }
 
-    }, [navigate, status])
+        return () => {
+            dispatch(resetSuccess())
+        }
+    }, [navigate, success, dispatch])
 
 
 
