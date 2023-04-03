@@ -1,20 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-export const createTask = createAsyncThunk('add/task', async (task) => {
-    const response = await fetch('', {
-        method: "POST",
-        headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify({ task })
-    })
-    const data = await response.json()
+export const createTask = createAsyncThunk('add/task', async (task, thunkApi) => {
 
-    if (response.ok) {
+    try {
+        const response = await fetch('todos', {
+            method: "POST",
+            headers: { 'Content-Type': 'Application/json' },
+            body: JSON.stringify(task)
+        })
+        const data = await response.json()
         return data
+
     }
-    else {
-        return data.errors
+    catch (error) {
+        console.log(error)
+        thunkApi.rejectWithValue(error.response.data)
     }
+
 
 })
 
@@ -44,7 +47,8 @@ export const updateTask = createAsyncThunk('update/task', async (task, taskID) =
 const initialState = {
     tasks: [],
     status: "idle",
-    errors: []
+    errors: [],
+    success: false
 }
 
 
@@ -52,6 +56,9 @@ const taskSlice = createSlice({
     name: "task",
     initialState,
     reducers: {
+        resetSuccess(state) {
+            state.success = false
+        },
         // addTask: (state, action) => {
         //     state.tasks.push(action.payload)
         // },
@@ -116,4 +123,5 @@ const taskSlice = createSlice({
 })
 
 export const { addTask, deleteTask } = taskSlice.actions
+export default taskSlice.reducer
 

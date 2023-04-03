@@ -1,7 +1,9 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { TaskPageContext } from '../context/TaskPageContext'
+import { createTask } from '../reducers/taskSlice'
 import '../Styles/AddTaskForm.css'
 
 function AddTaskForm() {
@@ -14,6 +16,8 @@ function AddTaskForm() {
     status: '',
 
   })
+
+  const dispatch = useDispatch()
 
 
   const { setTrigger } = useContext(TaskPageContext)
@@ -30,7 +34,7 @@ function AddTaskForm() {
 
   const handleTaskSubmit = (event) => {
     event.preventDefault();
-    console.log(task)
+    dispatch(createTask(task))
 
     setTask({
       title: '',
