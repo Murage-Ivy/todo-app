@@ -9,7 +9,7 @@ const store = configureStore({
         // reducer
         loggedUser: loggedUser,
         signedUser: signedUser,
-        task: taskSlice
+        userTasks: taskSlice
     }
 });
 

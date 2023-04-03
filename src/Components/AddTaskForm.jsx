@@ -1,8 +1,10 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { TaskPageContext } from '../context/TaskPageContext'
+import { resetSuccess } from '../reducers/taskSlice'
 import { createTask } from '../reducers/taskSlice'
 import '../Styles/AddTaskForm.css'
 
@@ -20,6 +22,9 @@ function AddTaskForm() {
   const dispatch = useDispatch()
 
 
+  const { status, success, errors } = useSelector(state => state.userTasks)
+
+
   const { setTrigger } = useContext(TaskPageContext)
 
   const handleChange = () => {
@@ -31,6 +36,7 @@ function AddTaskForm() {
     const { name, value } = event.target
     setTask({ ...task, [name]: value })
   }
+
 
   const handleTaskSubmit = (event) => {
     event.preventDefault();
@@ -44,6 +50,20 @@ function AddTaskForm() {
       status: '',
     })
   }
+
+
+  useEffect(() => {
+    if (success) {
+      setTrigger(false)
+    }
+
+    return () => {
+      dispatch(resetSuccess())
+    }
+
+  }, [success, setTrigger, dispatch])
+
+  console.log("this is success", success)
   return (
     <div className='task-form'>
       <div className='task-form-header'>

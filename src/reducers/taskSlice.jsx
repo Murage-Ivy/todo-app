@@ -3,19 +3,20 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const createTask = createAsyncThunk('add/task', async (task, thunkApi) => {
 
-    try {
-        const response = await fetch('todos', {
-            method: "POST",
-            headers: { 'Content-Type': 'Application/json' },
-            body: JSON.stringify(task)
-        })
-        const data = await response.json()
-        return data
 
+    const response = await fetch('todos', {
+        method: "POST",
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(task)
+    })
+    const data = await response.json()
+
+
+    if (response.ok) {
+        return data
     }
-    catch (error) {
-        console.log(error)
-        thunkApi.rejectWithValue(error.response.data)
+    else {
+        return thunkApi.rejectWithValue(data)
     }
 
 
@@ -59,12 +60,6 @@ const taskSlice = createSlice({
         resetSuccess(state) {
             state.success = false
         },
-        // addTask: (state, action) => {
-        //     state.tasks.push(action.payload)
-        // },
-        // deleteTask: (state, action) => {
-        //     state.tasks = state.tasks.filter(task => task.id !== action.payload)
-        // },
     },
 
     extraReducers: (builder) => {
@@ -75,6 +70,7 @@ const taskSlice = createSlice({
 
             .addCase(createTask.fulfilled, (state, action) => {
                 state.status = "idle"
+                state.success = true
                 state.tasks.push(action.payload)
             })
             .addCase(createTask.rejected, (state, action) => {
@@ -122,6 +118,5 @@ const taskSlice = createSlice({
     }
 })
 
-export const { addTask, deleteTask } = taskSlice.actions
+export const { resetSuccess } = taskSlice.actions
 export default taskSlice.reducer
-

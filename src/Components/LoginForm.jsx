@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { addUser } from '../reducers/loginslice'
-import { resetSuccess } from '../reducers/signupslice'
+import { resetSuccess } from '../reducers/loginslice'
 import '../Styles/LoginForm.css'
 
 function LoginForm() {
