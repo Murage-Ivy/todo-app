@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 
-export const addUser = createAsyncThunk("user/login", async (user) => {
-    const response = await fetch("http://localhost:3000/api/v1/login", {
+export const addUser = createAsyncThunk("user/login", async (user, thunkApi) => {
+    const response = await fetch("login", {
         method: "POST",
         headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify({ user })
+        body: JSON.stringify(user)
     }
     )
     const data = await response.json()
@@ -13,7 +13,8 @@ export const addUser = createAsyncThunk("user/login", async (user) => {
         return data
     }
     else {
-        return data.errors
+        return thunkApi.rejectWithValue(data)
+
     }
 
 })

@@ -17,7 +17,8 @@ function LoginForm() {
 
     const errors = useSelector(state => state.loggedUser.errors);
 
-
+    const loggedUser1 = useSelector(state => state.loggedUser)
+    console.log(loggedUser1)
 
     const dispatch = useDispatch()
 
