@@ -8,6 +8,7 @@ import { TaskPageContext } from '../context/TaskPageContext'
 
 function TaskPage() {
   const { trigger } = useContext(TaskPageContext)
+  
 
   console.log(trigger)
   return (

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import '../Styles/TaskCard.css'
 
-function TaskCard() {
+function TaskCard({ task }) {
     const taskStatus = [
         {
             status: 'todo',
@@ -19,24 +19,25 @@ function TaskCard() {
             button: 'Complete'
         }
     ]
+
+    console.log()
     return (
         <div className='task-card' draggable>
             <div className='task-card-title'>
-                <h3>Task Title</h3>
+                <h3>{task?.title}</h3>
             </div>
             <div className='task-card-header'>
                 <div className='task-card-date'>
-                    <p>10/12/2023</p>
+                    <p>{task?.start_date}</p>
                 </div>
                 <div className='task-card-status'>
-                    <p>Start</p>
+                    <p>{task?.status}</p>
                 </div>
             </div>
 
 
             <div className='task-card-body'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus vitae dolorum deserunt aliquam. </p>
+                <p>{task?.description} </p>
                 {/* // if status is todo, show 'Start'
                 // if status is inprogress, show 'Complete'
                 // if status is complete, show 'Delete' */}

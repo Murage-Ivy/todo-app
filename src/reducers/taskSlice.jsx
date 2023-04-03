@@ -23,11 +23,11 @@ export const createTask = createAsyncThunk('add/task', async (task, thunkApi) =>
 })
 
 export const fetchTasks = createAsyncThunk('fetch/tasks', async () => {
-    const response = await fetch('')
+    const response = await fetch('logged_in')
 
     const data = await response.json()
 
-    return data
+    return data.todos
 })
 
 export const updateTask = createAsyncThunk('update/task', async (task, taskID) => {
