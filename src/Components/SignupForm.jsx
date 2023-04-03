@@ -1,9 +1,10 @@
 import { faEnvelope, faImage, faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { signUpUser } from '../reducers/signupslice'
+import { resetSuccess, signUpUser } from '../reducers/signupslice'
 import '../Styles/SignupForm.css'
 
 function SignupForm() {
@@ -18,11 +19,8 @@ function SignupForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const status = useSelector(state => state.signedUser.status)
-    const errors = useSelector(state => state.signedUser.errors)
+    const { status, errors, success } = useSelector(state => state.signedUser)
 
-
-    console.log(errors)
 
 
     const handleChange = (event) => {
@@ -40,7 +38,21 @@ function SignupForm() {
             password: '',
             password_confirmation: ''
         })
+
+        if (success) navigate('/')
     }
+
+
+    useEffect(() => {
+        if (success) {
+            navigate('/')
+        }
+
+        return () => {
+            dispatch(resetSuccess())
+        }
+    }, [navigate, success, dispatch])
+
 
     const customDisplayError = () => {
         if (user.password.length < 0 && user.password.length > 8)
@@ -67,6 +79,7 @@ function SignupForm() {
                         <input type="email"
                             placeholder="Email"
                             value={user.email}
+                            autoComplete='email'
                             name="email"
                             onChange={handleChange} />
                         {errors ? <p className="error">{errors?.email?.join("")}</p> : null}
@@ -78,6 +91,7 @@ function SignupForm() {
                             type="text"
                             placeholder="Profile Picture"
                             value={user.image}
+                            autoComplete='image'
                             name="image"
                             onChange={handleChange} />
 
@@ -88,7 +102,9 @@ function SignupForm() {
                         <input
                             type="password"
                             placeholder="Password"
+
                             value={user.password}
+                            autoComplete='current-password'
                             name="password"
                             onChange={handleChange} />
                         {errors ? <p className="error">{errors?.password?.join("")}</p> : null}
@@ -100,6 +116,7 @@ function SignupForm() {
                             type="password"
                             placeholder="Confirm Password"
                             value={user.password_confirmation}
+                            autoComplete='current-password'
                             name="password_confirmation"
                             onChange={handleChange}
                         />

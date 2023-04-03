@@ -1,8 +1,9 @@
 import { faLock, faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { addUser } from '../reducers/loginslice'
 import '../Styles/LoginForm.css'
 
@@ -13,14 +14,19 @@ function LoginForm() {
         password: ''
     })
 
-    const status = useSelector(state => state.loggedUser.status);
-
-    const errors = useSelector(state => state.loggedUser.errors);
-
-    const loggedUser1 = useSelector(state => state.loggedUser)
-    console.log(loggedUser1)
-
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { status, errors } = useSelector(state => state.loggedUser)
+
+
+    useEffect(() => {
+        if (status === "success") {
+            navigate('/dashboard')
+        }
+
+    }, [navigate, status])
+
+
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -54,6 +60,7 @@ function LoginForm() {
                         name='email'
                         id='email'
                         placeholder='Enter your email'
+                        autoComplete='email'
                         value={loggedUser.email}
                         onChange={handleChange} />
                 </div>
@@ -64,12 +71,13 @@ function LoginForm() {
                         name='password'
                         id='password'
                         placeholder='Enter your password'
+                        autoComplete='current-password'
                         value={loggedUser.password}
                         onChange={handleChange} />
                 </div>
 
 
-                <button type='submit' id='login-btn'> {status === "loading" ? <loading>Submitting...</loading> : "LOGIN"}</button>
+                <button type='submit' id='login-btn'> {status === "loading" ? <p className='loading'>Submitting...</p> : "LOGIN"}</button>
 
 
                 <label

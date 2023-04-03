@@ -25,12 +25,12 @@ const initialState = {
         password: "",
     },
     status: "idle",
-    errors: []
+    errors: [],
 }
 
 
 const loggedUser = createSlice({
-    name: "user",
+    name: "auth",
     initialState,
     reducers: {
     },

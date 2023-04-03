@@ -28,12 +28,21 @@ const initialState = {
 
     },
     status: "idle",
+    success: false,
     errors: {}
 }
 const signedUser = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        resetSuccess(state) {
+            state.success = false
+        },
+
+        loginSuccess(state) {
+            state.success = true
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(signUpUser.pending, (state, _) => {
@@ -43,6 +52,7 @@ const signedUser = createSlice({
             .addCase(signUpUser.fulfilled, (state, action) => {
 
                 state.status = "idle"
+                state.success = true
                 state.user = action.payload
 
             })
@@ -59,3 +69,4 @@ const signedUser = createSlice({
 })
 
 export default signedUser.reducer
+export const { resetSuccess, loginSuccess } = signedUser.actions
